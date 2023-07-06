@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :is_matchign_login_user, only: [:edit,:update]
   def show
     @user = User.find(params[:id])
     @post_images = @user.post_images.page(params[:page])
